@@ -662,11 +662,15 @@ Las llamadas de sistema son funciones predefinidas. Sintaxis: `nombre(argumentos
 
 | Función | Descripción | Ejemplo |
 |---------|-------------|---------|
-| `concatenar(s1, s2)` | Concatena textos | `concatenar("Hola", "!")` |
-| `longitud_texto(s)` | Longitud de cadena | `longitud_texto(nombre)` |
-| `dividir_texto(s, sep)` | Divide por separador | `dividir_texto(linea, " ")` |
+| `concatenar(s1, s2)` | Concatena textos (exactamente dos argumentos) | `concatenar("Hola", "!")` |
+| `longitud_texto(s)` | Longitud de cadena (un argumento) | `longitud_texto(nombre)` |
+| `longitud(s)` | Sinónimo de `longitud_texto` | `longitud(nombre)` |
+| `dividir_texto(s, sep)` | Divide por separador (texto completo y separador; dos argumentos) | `dividir_texto(linea, " ")` |
+| `dividir(s, sep)` | Sinónimo de `dividir_texto` | `dividir(linea, ",")` |
 | `minusculas(s)` | Minúsculas | `minusculas(texto)` |
 | `str_minusculas(s)` | Idem | `str_minusculas(texto)` |
+| `copiar_texto(s)` | Copia de cadena | `copiar_texto(origen)` |
+| `str_copiar(s)` | Idem | `str_copiar(origen)` |
 | `str_a_entero(s)` | Convierte a entero | `str_a_entero("42")` |
 | `str_a_flotante(s)` | Convierte a flotante | `str_a_flotante("3.14")` |
 | `str_desde_numero(n)` | Número a texto | `str_desde_numero(42)` |
@@ -675,6 +679,8 @@ Las llamadas de sistema son funciones predefinidas. Sintaxis: `nombre(argumentos
 | `extraer_subtexto(s, i, l)` | Subcadena | `extraer_subtexto(s, 0, 5)` |
 | `contiene_texto(s, p)` | ¿Contiene patrón? | `contiene_texto(s, "abc")` |
 | `termina_con(s, suf)` | ¿Termina con? | `termina_con(nom, ".jasb")` |
+
+**Aridad (compilador):** `jbc` comprueba el número de argumentos en estas llamadas. Por ejemplo, `concatenar` exige dos textos; `longitud`/`longitud_texto`, `minusculas`/`str_minusculas` y `copiar_texto`/`str_copiar` exigen uno; `dividir`/`dividir_texto` exigen dos (cadena y separador). Si faltan o sobran argumentos, el error semántico indica cuántos faltan o sobran y sugiere un ejemplo válido.
 
 ### Listas
 
